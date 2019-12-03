@@ -1,0 +1,22 @@
+<h1>Movies</h1>
+
+<a class="btn btn-primary  add-movie" routerLink="/movies-add">Add Movie</a>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="">Select Genre</label>
+      <select (change)="onChangeGenre()" [(ngModel)]="selectedGenre" class="form-control">
+        <option *ngFor="let genre of genres" [value]="genre.id">{{genre.title}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div>
+  <div (click)="onMovieSelect(movie.movie_id)" class="col-md-3 movie" *ngFor="let movie of movies">
+    <img src="http://localhost:4000/{{movie.thumbnail}}" alt="">
+    <div class="title">{{movie.title}}</div>
+    <!-- <div class="rating">{{movie.rating}} / 5</div> -->
+    <app-rating [count]="movie.rating"></app-rating>
+  </div>
+</div>

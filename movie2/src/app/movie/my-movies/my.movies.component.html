@@ -1,0 +1,11 @@
+<h1>My Movies</h1>
+
+<a class="btn btn-primary add-movie" routerLink="/movies-add">Add Movie</a>
+
+<div>
+  <div (click)="onMovieSelect(movie.id)" class="col-md-3 movie" *ngFor="let movie of movies">
+    <img src="http://localhost:4000/{{movie.thumbnail}}" alt="">
+    <div class="title">{{movie.title}}</div>
+    <app-rating [count]="movie.rating"></app-rating>
+  </div>
+</div>

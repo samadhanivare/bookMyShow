@@ -1,0 +1,58 @@
+<h1 *ngIf="movie != undefined">{{movie.title}}</h1>
+
+<div class="row" *ngIf="movie != undefined">
+  <div class="col-md-4">
+    <img src="http://localhost:4000/{{movie.thumbnail}}" alt="">
+    <a routerLink="/movie-edit/{{movie.id}}" class="btn btn-warning edit">Edit</a>
+  </div>
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-12">
+        <strong>Rating: </strong> <app-rating [count]="movie.rating"></app-rating>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <strong>Directors: </strong> {{movie.director}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <strong>Writers: </strong> {{movie.writer}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <strong>Actors: </strong> {{movie.actors}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <strong>Genre: </strong> {{movie.genre_title}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        {{movie.description}}
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-12">
+        <youtube-player [videoId]="movie.videourl"></youtube-player>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="row" *ngIf="movie != undefined">
+    <div class="col-md-12">
+      <video controls [src]="movie.videourl"></video>
+    </div>
+</div>
